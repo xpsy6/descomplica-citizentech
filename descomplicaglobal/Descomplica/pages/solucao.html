@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encontre orientações simples sobre serviços e direitos com o Brasileirinho, do Descomplica.">
+  <title>Brasileirinho | Descomplica</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="solution-page">
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div class="assistant-layout">
+    <aside class="assistant-sidebar" aria-label="Menu do Descomplica">
+      <a class="assistant-brand" href="../index.html" aria-label="Descomplica — página inicial">
+        <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>Descomplica</span>
+      </a>
+
+      <nav class="assistant-nav" aria-label="Navegação principal">
+        <button class="sidebar-link sidebar-button active" id="nav-assistant" type="button" aria-current="page">
+          <span class="sidebar-icon" aria-hidden="true">▤</span> Assistente
+        </button>
+        <button class="sidebar-link sidebar-button" id="nav-services" type="button">
+          <span class="sidebar-icon" aria-hidden="true">▣</span> Serviços
+        </button>
+        <button class="sidebar-link sidebar-button" id="nav-info" type="button">
+          <span class="sidebar-icon" aria-hidden="true">ⓘ</span> Informações
+        </button>
+        <button class="sidebar-link sidebar-button" id="show-favorites" type="button">
+          <span class="sidebar-icon" aria-hidden="true">♧</span> Favoritos
+        </button>
+        <button class="sidebar-link sidebar-button" id="nav-recent" type="button">
+          <span class="sidebar-icon" aria-hidden="true">◷</span> Histórico
+        </button>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+      <section class="recent-section" aria-labelledby="recent-title">
+        <h2 id="recent-title">Perguntas recentes</h2>
+        <ul id="recent-questions" class="recent-list">
+          <li class="recent-empty">Suas perguntas acessadas aparecerão aqui.</li>
+        </ul>
+      </section>
+
+      <button class="sidebar-help" id="accessibility-help" type="button">
+        <span aria-hidden="true">ⓘ</span> Ajuda e Acessibilidade
+      </button>
+    </aside>
+
+    <main class="assistant-main" id="conteudo-principal" tabindex="-1">
+      <div class="assistant-toolbar" aria-label="Preferências de visualização">
+        <div class="font-controls" aria-label="Tamanho do texto">
+          <button type="button" data-font="down" aria-label="Diminuir texto">A−</button>
+          <button type="button" data-font="reset" aria-label="Tamanho normal do texto">A</button>
+          <button type="button" data-font="up" aria-label="Aumentar texto">A+</button>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo de alto contraste" aria-pressed="false">◐</button>
+        <button class="accessibility-top" id="accessibility-top" type="button">
+          <span aria-hidden="true">♿</span> Acessibilidade
+        </button>
+      </div>
+
+      <section class="library-view" id="information-view" hidden aria-labelledby="library-title">
+        <div class="library-heading">
+          <span class="answer-kicker">CENTRAL DE INFORMAÇÕES</span>
+          <h1 id="library-title">Biblioteca de Documentos</h1>
+          <p>Conheça os principais documentos utilizados no dia a dia e entenda para que serve cada um.</p>
+          <button class="library-back" type="button" data-back-assistant>← Voltar a falar com o Brasileirinho</button>
+        </div>
+        <div class="document-grid" id="document-grid"></div>
+        <p class="library-note">As imagens são modelos ilustrativos. A aparência dos documentos pode variar conforme o órgão emissor e a versão.</p>
+      </section>
+
+      <section class="library-view" id="services-view" hidden aria-labelledby="services-title">
+        <div class="library-heading">
+          <span class="answer-kicker">DESCOMPLICA</span>
+          <h1 id="services-title">Serviços e orientações</h1>
+          <p>Escolha uma categoria para voltar às perguntas relacionadas.</p>
+          <button class="library-back" type="button" data-back-assistant>← Voltar a falar com o Brasileirinho</button>
+        </div>
+        <div class="quick-service-grid">
+          <button type="button" data-service-category="beneficios">Benefícios sociais</button>
+          <button type="button" data-service-category="documentos">Documentos</button>
+          <button type="button" data-service-category="saude">Saúde</button>
+          <button type="button" data-service-category="trabalho">Trabalho e renda</button>
+          <button type="button" data-service-category="moradia">Moradia</button>
+          <button type="button" data-service-category="educacao">Educação</button>
+        </div>
+      </section>
+
+      <section class="library-view" id="favorites-view" hidden aria-labelledby="favorites-title">
+        <div class="library-heading">
+          <span class="answer-kicker">SUAS ORIENTAÇÕES SALVAS</span>
+          <h1 id="favorites-title">Favoritos</h1>
+          <p>Reúna aqui as orientações que você deseja consultar novamente.</p>
+          <button class="library-back" type="button" data-back-assistant>← Voltar a falar com o Brasileirinho</button>
+        </div>
+        <div id="favorites-list" class="saved-list"></div>
+      </section>
+
+      <section class="library-view" id="recent-view" hidden aria-labelledby="recent-view-title">
+        <div class="library-heading">
+          <span class="answer-kicker">SEU HISTÓRICO</span>
+          <h1 id="recent-view-title">Perguntas recentes</h1>
+          <p>Consulte novamente as últimas orientações acessadas nesta sessão.</p>
+          <button class="library-back" type="button" data-back-assistant>← Voltar a falar com o Brasileirinho</button>
+        </div>
+        <div id="recent-view-list" class="saved-list"></div>
+      </section>
+
+      <section class="assistant-welcome" aria-labelledby="welcome-title">
+        <img class="brazileirinho-image" src="../img/brasileirinho.png" alt="Brasileirinho, um robô verde com chapéu de palha e detalhes nas cores do Brasil">
+        <h1 id="welcome-title">Olá! Eu sou o <span>Brasileirinho.</span></h1>
+        <p>Escolha uma das perguntas abaixo e vou te ajudar com<br class="desktop-break"> informações simples e confiáveis.</p>
+      </section>
+
+      <section class="faq-section" id="perguntas" aria-label="Perguntas frequentes">
+        <div class="faq-filter-bar" id="faq-filter-bar" hidden>
+          <span id="faq-filter-label"></span>
+          <button type="button" id="clear-faq-filter">Ver todas as perguntas</button>
+        </div>
+        <div class="faq-grid" id="faq-grid"></div>
+      </section>
+
+      <section class="answer-panel" id="orientacao" aria-live="polite" aria-atomic="true" hidden>
+        <div class="answer-heading">
+          <span class="answer-kicker">ORIENTAÇÃO DO BRASILEIRINHO</span>
+          <button class="answer-close" id="close-answer" type="button" aria-label="Fechar orientação">×</button>
+        </div>
+        <h2 id="answer-title"></h2>
+        <div id="answer-content"></div>
+      </section>
+
+      <section class="contact-section" id="contato" aria-labelledby="contact-title">
+        <div class="contact-intro">
+          <h2 id="contact-title">Sua dúvida não foi solucionada?</h2>
+          <p>Se ainda precisar de orientação, você pode registrar uma solicitação pelo formulário abaixo.</p>
+          <button class="contact-toggle" id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-form-panel">
+            Enviar uma solicitação <span aria-hidden="true">＋</span>
+          </button>
+        </div>
+
+        <div class="contact-form-panel" id="contact-form-panel" hidden>
+          <form id="contact-form" novalidate>
+            <div class="contact-fields">
+              <div class="form-field">
+                <label for="contact-name">Nome completo</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required aria-describedby="name-error">
+                <small class="field-error" id="name-error"></small>
+              </div>
+              <div class="form-field">
+                <label for="contact-email">E-mail</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                <small class="field-error" id="email-error"></small>
+              </div>
+              <div class="form-field">
+                <label for="contact-phone">Telefone para contato</label>
+                <input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required aria-describedby="phone-error">
+                <small class="field-error" id="phone-error"></small>
+              </div>
+              <div class="form-field">
+                <label for="contact-subject">Assunto</label>
+                <select id="contact-subject" name="subject" required aria-describedby="subject-error">
+                  <option value="">Selecione o assunto</option>
+                  <option value="beneficios">Benefícios sociais</option>
+                  <option value="documentos">Documentos</option>
+                  <option value="saude">Saúde</option>
+                  <option value="trabalho">Trabalho e renda</option>
+                  <option value="moradia">Moradia</option>
+                  <option value="outro">Outro assunto</option>
+                </select>
+                <small class="field-error" id="subject-error"></small>
+              </div>
+              <div class="form-field form-field-full" id="other-subject-field" hidden>
+                <label for="contact-other-subject">Conte qual é a sua dúvida</label>
+                <textarea id="contact-other-subject" name="otherSubject" rows="4" placeholder="Descreva brevemente sua dúvida" aria-describedby="other-subject-error"></textarea>
+                <small class="field-error" id="other-subject-error"></small>
+              </div>
+            </div>
+            <div class="contact-response-time">
+              <strong>Prazo estimado de retorno: até 48 horas.</strong>
+              <p>A proposta é retornar com mais informações por e-mail, WhatsApp ou ligação.</p>
+            </div>
+            
+            <button class="contact-submit" type="submit">Enviar solicitação</button>
+            <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <p class="assistant-disclaimer">O Descomplica é um projeto acadêmico de orientação. Não substitui os canais oficiais do governo.</p>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
